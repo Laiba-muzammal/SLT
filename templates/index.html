@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sign Language Translator</h1>
+            <p>Show your signs to the camera and see them translated to text</p>
+        </header>
+
+        <div class="main-content">
+            <div class="camera-section">
+                <div class="video-container">
+                    <video id="video" autoplay playsinline></video>
+                    <div class="roi-indicator"></div>
+                    <div class="camera-status" id="cameraStatus">Camera off</div>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary">Start Camera</button>
+                    <button id="stopBtn" class="btn btn-secondary" disabled>Stop Camera</button>
+                    <button id="captureBtn" class="btn btn-action" disabled>Capture & Translate</button>
+                    <button id="clearBtn" class="btn btn-warning">Clear Text</button>
+                </div>
+            </div>
+
+            <div class="translation-section">
+                <div class="translation-output">
+                    <h2>Translation</h2>
+                    <div id="translationText" class="translation-text">Translation will appear here...</div>
+                    <div class="confidence">
+                        Confidence: <span id="confidenceValue">0%</span>
+                    </div>
+                    <div class="current-sign">
+                        Current Sign: <span id="currentSign">None</span>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h2>Recent Translations</h2>
+                    <div id="historyList" class="history-list"></div>
+                    <button id="clearHistoryBtn" class="btn btn-outline">Clear History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
